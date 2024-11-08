@@ -24,12 +24,12 @@ resource "azurerm_resource_group" "rg" {
   location = "east us"
 }
 
-module "storage" {
+module "storage1" {
 source = "./storage"
 azurerm_resource_group_name = azurerm_resource_group.rg.name
 azurerm_resource_group_location = azurerm_resource_group.rg.location
 }
 
 output "storageaccount_replication" {
-  value = module.storage.storage_replication
+  value = module.storage1.storage_replication
 }
